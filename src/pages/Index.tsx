@@ -69,7 +69,7 @@ const Index = () => {
         </div>
 
         <footer className="fixed bottom-6 left-0 right-0 text-center z-30">
-          <p className="text-valentine-rose/40 text-sm font-light">Made with ❤️ by Jirid</p>
+          <p className="text-valentine-rose/40 text-sm font-light">Made with ❤️ by Jirid-man</p>
         </footer>
       </div>
     );
@@ -159,7 +159,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="fixed bottom-6 left-0 right-0 text-center z-10">
         <p className="text-muted-foreground/60 text-xs sm:text-sm font-light">
-          Made with ❤️ by Jirid
+          Made with ❤️ by Jirid-man
         </p>
       </footer>
     </div>
