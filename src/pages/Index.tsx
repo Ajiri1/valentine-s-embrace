@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import FloatingHearts from "@/components/FloatingHearts";
 import Confetti from "@/components/Confetti";
 import CelebrationHearts from "@/components/CelebrationHearts";
+import { createRomanticAmbience } from "@/lib/romantic-audio";
 
 const Index = () => {
   const [accepted, setAccepted] = useState(false);
@@ -10,6 +11,7 @@ const Index = () => {
   const [showCelebration, setShowCelebration] = useState(false);
   const [cardVisible, setCardVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<ReturnType<typeof createRomanticAmbience> | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setCardVisible(true), 100);
@@ -28,6 +30,11 @@ const Index = () => {
   const handleYes = () => {
     setAccepted(true);
     setTimeout(() => setShowCelebration(true), 600);
+    // Start romantic ambience after user interaction
+    if (!audioRef.current) {
+      audioRef.current = createRomanticAmbience();
+    }
+    audioRef.current.play();
   };
 
   const yesScale = 1 + noAttempts * 0.06;
